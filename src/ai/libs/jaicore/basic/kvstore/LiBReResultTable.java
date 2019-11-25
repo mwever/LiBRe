@@ -83,7 +83,7 @@ public class LiBReResultTable {
 		merged.stream().forEach(x -> x.put("baselearnerValues", x.getAsDoubleList("baselearnerValues").stream().mapToDouble(y -> y).average().getAsDouble()));
 
 		merged = merged.group(new String[] { "type", "algorithm", "optEval", "dataset", "singleLabelThreshold" }, grouping);
-		merged.sort(new finalcbr.result.KVStoreSequentialComparator("type", "singleLabelThreshold", "algorithm", "dataset"));
+		merged.sort(new libre.result.KVStoreSequentialComparator("type", "singleLabelThreshold", "algorithm", "dataset"));
 
 		if (INVERT_FOR_TM) {
 			merged.stream().forEach(x -> x.put(TM, (-1) * x.getAsDouble(TM)));

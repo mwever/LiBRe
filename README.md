@@ -2,7 +2,7 @@
 Implementation and data for LiBRe
 
 # Implementation Details
-The implementation of LiBRe is available in Java (see ```src directory```). To run the experiments and the analyses it relies on the library AILibs release ```0.1.6``` (```ai.libs:mlplan:0.1.6```). The implementation contains everything from A-Z:
+The implementation of LiBRe is available in Java (see ```src``` directory). To run the experiments and the analyses it relies on the library AILibs release ```0.1.6``` (```ai.libs:mlplan:0.1.6```). The implementation contains everything from A-Z:
 
 * A parallelized implementation of Binary Relevance learning (package ```libre.experimenter```)
 * The experimenter to evaluate all the dataset splits and combinations of Binary Relevance learning and the base learners (package ```libre.experimenter```)

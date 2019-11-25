@@ -1,4 +1,4 @@
-# LiBRe
+# LiBRe (Label-wIse selection of base learners in Binare RElevance)
 Implementation and data for LiBRe
 
 # Implementation Details

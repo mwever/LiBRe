@@ -1,5 +1,5 @@
-# LiBRe (Label-wIse selection of base learners in Binare RElevance)
-Implementation and data for LiBRe
+# LiBRe 
+Implementation and data for LiBRe (**L**abel-w**i**se selection of base learners in **B**inary **Re**levance)
 
 # Implementation Details
 The implementation of LiBRe is available in Java (see ```src``` directory). To run the experiments and the analyses it relies on the library AILibs release ```0.1.6``` (```ai.libs:mlplan:0.1.6```). The implementation contains everything from A-Z:

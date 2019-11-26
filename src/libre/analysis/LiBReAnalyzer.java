@@ -68,13 +68,8 @@ public class LiBReAnalyzer {
 					if (!datasetFile.isDirectory()) {
 						continue;
 					}
-					System.out.println("Consider dataset " + datasetFile.getName());
 					String datasetName = datasetFile.getName();
-
-					if (!datasetName.contains("tmc") && !datasetName.contains("bookmarks")) {
-						System.out.println("Skip");
-						continue;
-					}
+					System.out.println("# Consider dataset " + datasetFile.getName() + "(" + datasetFile.getAbsolutePath() + ")");
 
 					LiBRe libre = null;
 
@@ -94,25 +89,30 @@ public class LiBReAnalyzer {
 								evalIx = i;
 							}
 						}
-						System.out.println("Optimize " + valOpt.getName());
+						System.out.println("## Optimize " + valOpt.getName());
 						IThresholdOptimizer globalOpt = new CompleteBatchMacroThresholdOptimizer(valOpt);
 
-						System.out.println("Validation based label-wise threshold");
+						System.out.print("%%% Validation based label-wise threshold...");
 						libre.customizeForVal(globalOpt);
 						addToCol(libre, col, valOpt, "val", datasetName, false);
+						System.out.println("Done.");
 
-						System.out.println("Optimistic label-wise threshold");
+						System.out.print("%%% Optimistic label-wise threshold...");
 						libre.customizeForTest(globalOpt);
 						addToCol(libre, col, valOpt, "optimistic", datasetName, false);
+						System.out.println("Done.");
 
 						globalOpt.setSingleLabel(true);
-						System.out.println("Validation based single label threshold");
+						System.out.print("%%% Validation based single label threshold...");
 						libre.customizeForVal(globalOpt);
 						addToCol(libre, col, valOpt, "val", datasetName, true);
+						System.out.println("Done.");
 
-						System.out.println("Optimistic single label threshold");
+						System.out.println("%%% Optimistic single label threshold...");
 						libre.customizeForTest(globalOpt);
 						addToCol(libre, col, valOpt, "optimistic", datasetName, true);
+						System.out.println("Done.");
+
 						outputFile.getParentFile().mkdirs();
 						col.serializeTo(outputFile);
 					}
